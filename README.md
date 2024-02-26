@@ -1,5 +1,7 @@
-# mRNA2tRNA
+# m2tRNA
+
 ### A machine learning based method that converts mRNA data into tRNA data.
+Here, we introduce an mRNA-to-tRNA tool (m2tRNA), a machine-learning model that incorporates biological constraints to infer tRNA levels from genome-wide mRNA data.
 
 ## Overview of the algorithm framework
 ### ![fig1-4 0](https://github.com/dydazy/mRNA2tRNA/assets/46813403/81224c04-a128-4380-8ed6-1e9174495a9c)
