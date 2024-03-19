@@ -23,8 +23,8 @@ f, It is then weighted by previously reported tRNA activity to obtain the traine
 g, The DBtRend database provides tRNA profiles to validate the results from m2tRNA. 
 
 
-
-#  Please proceed with executing or comprehending the provided content in accordance with the subsequent steps.
+# Here, we have provided explanations for the content of each file (or folder) that we offer.
+### Please proceed with executing or comprehending the provided content in accordance with the subsequent steps.
 ## 1.Prepare data 
 ### Prior to initiating the use of m2tRNA, it is necessary to first prepare the preliminary dataset. This dataset is primarily utilized for training within the m2tRNA neural network. We furnish all the required datasets for training m2tRNA in the section titled “1. Prepare Data”. This dataset encompasses approximately 10,000 sample sets. The mRNA data within these sets is sourced from the TCGA database, while the tRNA levels are derived from the tRend database, ensuring a correspondence between the samples (as depicted in Figure 1).
 ### We recommend running the “Prepare data.ipynb” in JupyterLab/Jupyter notebook. We provide scripts in this file to prepare the dataset needed for training. After running, you will obtain a large matrix (filename: “tRNA_log2_mRNA_rank.csv” or “tRNA_log2_norm_mRNA_log2_norm.csv”,The file size is approximately 2,700 MB.), where rows and columns represent genes and samples respectively. The first 429 rows of the synthesized data frame consist of tRNA expression data, and the subsequent data is mRNA data.
@@ -36,8 +36,6 @@ g, The DBtRend database provides tRNA profiles to validate the results from m2tR
 
 ## 3.Reproducibility of the content in the manuscript.
 ### In order to ensure data continuity, we have made every effort to provide the process for reproducing the results mentioned in the manuscript. However, we have not provided some of the larger and less important intermediate process files.s
-
-
 
 
 
