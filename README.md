@@ -1,4 +1,6 @@
 # m2tRNA
+We provide M2TRNA for testing on this Git, which can be used on the Jupterlab/Juternote. At the same time, we also provided the duplication process of all data in the manuscript.
+
 
 ### A machine learning based method that converts mRNA data into tRNA data.
 Here, we introduce an mRNA-to-tRNA tool (m2tRNA), a machine-learning model that incorporates biological constraints to infer tRNA levels from genome-wide mRNA data.
@@ -9,6 +11,6 @@ Here, we introduce an mRNA-to-tRNA tool (m2tRNA), a machine-learning model that 
 ### Overview of the m2tRNA framework.  
 a, Data source description, including expression data from the TCGA database (a) and tRNA data from DBtRend (g).  b, Data preprocessing methods, with the recommended one marked with a red star.  c, Transformation of input data, weighting mRNA expression information according to codon usage per gene.  d, Inputting weighted data into the first layer of a fully connected neural network.  To simplify the computational load, a group or multiple groups of genes of interest can be selected for pre-training m2tRNA.  Integrate the information obtained in (d), then use codons of different amino acids to constrain it (e), and (f) weight it by previously reported tRNA activity to obtain the trained m2tRNA results.  g, The DBtRend database provides tRNA profiles to validate m2tRNA results.  
 
- 
+ ## 
 
 
