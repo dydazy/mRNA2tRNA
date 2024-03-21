@@ -32,22 +32,33 @@ It’s worth noting that the training set for this test version of m2tRNA is com
 In detail: In order to ensure data continuity, we have made every effort to provide the process for reproducing the results mentioned in the manuscript. However, we have not provided some of the larger and less important intermediate process files.
 
 
+## 1.3 Introduction of m2tRNA_v0.0.1-alpha
+
+![m2tRNA_beta](https://github.com/dydazy/mRNA2tRNA/assets/46813403/2995094e-405f-4b52-b3be-f9ca55da85bb)
+The process of m2tRNA_v0.0.1-alpha is shown in the fig2.
 
 
+## 1.4 Running m2tRNA_v0.0.1-alpha 
 
+First, make sure you have installed the following Python packagesor run:
 
+```pip install pandas, numpy, scipy, matplotlib, sklearn, torch```
 
+You can directly download the ```m2tRNA_v0.0.1-alpha``` folder. Please note that this file requires about ```3000MB``` of space. Then run the following code:
 
+linux:
+              
+				```cd m2tRNA_v0.0.1-alpha```
 
+				```bash m2tRNA.sh```
 
-
-
-
-
-
-
-
-
+Or run in the conda environment:
+        
+        ```python m2tRNA.py --get_training_set True --Custom_training_set_path False --split_training_set_dir "default" 
+        --merged_training_set_dir "default" --Use_default_path True --tRNA_codon_path "default" --codon_usage_path "default" 
+        --activate_list_path "default" --cds_length_path "default" --Customized_Training_data_set_path "default" 
+        --trained_m2tRNA_Net_save_path "default" --Use_default_parameter False --device "cuda" --batch_size 1024 
+        --Learning_rate 0.001 --epoch_num 50 --you_mRNA_data_path "default" \```
 
 
 
