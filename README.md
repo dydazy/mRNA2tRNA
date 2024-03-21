@@ -72,85 +72,107 @@ python m2tRNA.py --get_training_set True --Custom_training_set_path False --spli
 Explanation of each parameter:
 ```
 '--get_training_set',
-					Notes'If you are not ready for training set, please set True ,"--get_training_set True"'
+Notes'If you are not ready for training set, please set True ,"--get_training_set True"'
 
 '--Custom_training_set_path',
-					Notes'Please enter the absolute path where the custom gene set is saved. Please note that this parameter is only effective when the ‘–get_training_set’ parameter is\
-					 set to True. This parameter sets the save path for the automatically generated training set. By \
-					 default, this parameter is False, which means the default save path is “m2tRNA/Process_file/Rawdata_tRNA_mRNA.csv.”'
+Notes'Please enter the absolute path where the custom gene set is saved. Please note that
+this parameter is only effective when the ‘–get_training_set’ parameter is set to True.
+This parameter sets the save path for the automatically generated training set. By default,
+this parameter is False, which means the default save path is “m2tRNA/Process_file/Rawdata_tRNA_mRNA.csv.”'
+
 '--split_training_set_dir',
-					Notes'Unless the ‘--Custom_training_set_path’ is set to ‘True’, this parameter does not need to be filled in.\
-					The training set we provide after splitting, the default path is ‘/m2tRNA/src/Rawdata_tRNA_mRNA’.'
+Notes'Unless the ‘--Custom_training_set_path’ is set to ‘True’, this parameter does not
+need to be filled in. The training set we provide after splitting, the default path is ‘/m2tRNA/src/Rawdata_tRNA_mRNA’.'
+
 '--merged_training_set_dir',
-					Notes'Unless the ‘--Custom_training_set_path’ is set to ‘True’, this parameter does not need to be filled in.\
-					The training set we provide after splitting, the default path is ‘/m2tRNA/Process_file’.'
+Notes'Unless the ‘--Custom_training_set_path’ is set to ‘True’, this parameter does not need
+to be filled in.The training set we provide after splitting, the default path is ‘/m2tRNA/Process_file’.'
+
 
 # --Use_default_path
 '--Use_default_path',
-					Notes'If True, all process files and result files will be saved to the default path. The process files will be saved in the ‘m2tRNA/Process_file’ directory. \
-					The result files will be directly output to the ‘m2tRNA/’ directory.'
+Notes'If True, all process files and result files will be saved to the default path.
+The process files will be saved in the ‘m2tRNA/Process_file’ directory. The result
+files will be directly output to the ‘m2tRNA/’ directory.'
+
+
 # --bioinfo path
 '--tRNA_codon_path', default="default",
-					Notes'Unless the ‘--Use_default_path’ is set to ‘False’, this parameter does not need to be filled in. This \
-					parameter is used to input the path of the ‘tRNA_codon.csv’ file. This \
-					is a penalty matrix with a shape of (codon*anticodon, 64*429, composed of 0 and 1. It is used to kill the \
-					neurons in m2tRNA that describe non-corresponding anticodon-codon. The default path for this file \
-					is ‘m2tRNA/src/Data/tRNA_codon.csv’.'
+Notes'Unless the ‘--Use_default_path’ is set to ‘False’, this parameter does not need
+to be filled in. This parameter is used to input the path of the ‘tRNA_codon.csv’ file.
+This is a penalty matrix with a shape of (codon*anticodon, 64*429, composed of 0 and 1.
+It is used to kill the neurons in m2tRNA that describe non-corresponding anticodon-codon.
+The default path for this file is ‘m2tRNA/src/Data/tRNA_codon.csv’.'
+
 '--codon_usage_path', default="default",
-					Notes'Unless the ‘--Use_default_path’ is set to ‘False’, this parameter does not need to be filled in.This \
-					parameter is used to input the path of the ‘codon_frequence.csv’ file. This is a matrix composed of genes \
-					and codon usage frequencies, with a shape of 17000*64. It is used to describe the usage frequency of each \
-					codon in each gene. The default path for this file is ‘m2tRNA/src/Data/codon_frequence.csv’.'
+Notes'Unless the ‘--Use_default_path’ is set to ‘False’, this parameter does not need to
+be filled in.This parameter is used to input the path of the ‘codon_frequence.csv’ file.
+This is a matrix composed of genes and codon usage frequencies, with a shape of 17000*64.
+It is used to describe the usage frequency of each codon in each gene. The default path
+for this file is ‘m2tRNA/src/Data/codon_frequence.csv’.'
+
 '--activate_list_path', default="default",
-					Notes'Unless the ‘--Use_default_path’ is set to ‘False’, this parameter does not need to be filled in.\
-					This parameter is used to input the path of the ‘tRNA_activate_list.csv’ file. This file will introduce\
-					 a matrix of shape 1*429, used to describe the activity of 429 tRNA genes. In fact, this is also a penalty\
-					  list, defined according to the description of Thornlow BP, Armstrong J, et al., used to distinguish those \
-					  high-expression high-expression/low-expression tRNA genes. \
-					  Reference: [Thornlow BP, Armstrong J, et al. Predicting transfer RNA gene activity from sequence and genome \
-					  context. Genome Res. 2020. 30: 85-94.]  The default path for this file is ‘m2tRNA/src/Data/tRNA_activate_list.csv’.'
+Notes'Unless the ‘--Use_default_path’ is set to ‘False’, this parameter does not need to be filled in.
+This parameter is used to input the path of the ‘tRNA_activate_list.csv’ file. This file will introduce
+a matrix of shape 1*429, used to describe the activity of 429 tRNA genes. In fact, this is also a penalty
+list, defined according to the description of Thornlow BP, Armstrong J, et al., used to distinguish those
+high-expression high-expression/low-expression tRNA genes.
+Reference: [Thornlow BP, Armstrong J, et al. Predicting transfer RNA gene activity from sequence and genome
+context. Genome Res. 2020. 30: 85-94.]  The default path for this file is ‘m2tRNA/src/Data/tRNA_activate_list.csv’.'
+
 '--cds_length_path', default="default",
-					Notes'Unless the ‘--Use_default_path’ is set to ‘False’, this parameter does not need to be filled in.\
-					This parameter is used to input the path of the ‘cds_length.csv’ file. This file is used to describe \
-					the length of the cds for each input gene, and this value is determined by the longest cds of the gene.\
-					The default path for this file is ‘m2tRNA/src/Data/cds_length.csv. Please note that this parameter is \
-					optional and can be used to introduce the length of the gene when calculating tRNA expression. Although \
-					this helps with the biological interpretation of m2tRNA, it does not significantly improve prediction performance.'
+Notes'Unless the ‘--Use_default_path’ is set to ‘False’, this parameter does not need to be filled in.
+This parameter is used to input the path of the ‘cds_length.csv’ file. This file is used to describe 
+the length of the cds for each input gene, and this value is determined by the longest cds of the gene.
+The default path for this file is ‘m2tRNA/src/Data/cds_length.csv. Please note that this parameter is 
+optional and can be used to introduce the length of the gene when calculating tRNA expression. Although 
+this helps with the biological interpretation of m2tRNA, it does not significantly improve prediction performance.'
+
+
 # --process_file path
 '--Customized_Training_data_set_path', default="",
-					Notes'Unless the ‘--Use_default_path’ is set to ‘False’, this parameter does not need to be filled in.\
-					The location of this parameter is used to store the customized training set generated during the process. \
-					This customized training set is determined by the gene_id in your own mRNA readcount. The default storage \
-					path is ‘/Process_file/Customized_Training_data_set.csv’.'
+Notes'Unless the ‘--Use_default_path’ is set to ‘False’, this parameter does not need to be filled in.
+The location of this parameter is used to store the customized training set generated during the process. 
+This customized training set is determined by the gene_id in your own mRNA readcount. The default storage 
+path is ‘/Process_file/Customized_Training_data_set.csv’.'
+
 '--trained_m2tRNA_Net_save_path', default="",
-					Notes'Unless the ‘--Use_default_path’ is set to ‘False’, this parameter does not need to be filled in.\
-					The path filled in this parameter is the path where the results of the loss function are saved when training m2tRNA.'
+Notes'Unless the ‘--Use_default_path’ is set to ‘False’, this parameter does not need to be filled in.
+The path filled in this parameter is the path where the results of the loss function are saved when training m2tRNA.'
+
 
 # --Use_default_parameter
 '--Use_default_parameter', default=False,
-					Notes'If True, all parameters will use the default settings, which include device = ‘cuda’, batch_size = 1024, Learning_rate = 0.001, and epoch_num = 10.If this parameter is set to \
-					False, you need to set parameters such as  "--batch_size", "--Learning_rate ", and "--epoch_num" together.'
+Notes'If True, all parameters will use the default settings, which include device = ‘cuda’, batch_size = 1024,
+Learning_rate = 0.001, and epoch_num = 10.If this parameter is set to 
+False, you need to set parameters such as  "--batch_size", "--Learning_rate ", and "--epoch_num" together.'
+
 '--device', default="cuda",
-					Notes'Unless the ‘–Use_default_parameter’ is set to ‘False’, this parameter does not need to be filled in. This parameter refers to the\
-					 device used for training m2tRNA, which can be either ‘cuda’ or ‘cpu’. However, please note that if ‘cpu’ is selected for training m2tRNA\
-					  and the training set contains a large number of genes, it may result in slower operation.'
+Notes'Unless the ‘–Use_default_parameter’ is set to ‘False’, this parameter does not need to be filled in.
+This parameter refers to the device used for training m2tRNA, which can be either ‘cuda’ or ‘cpu’.
+However, please note that if ‘cpu’ is selected for training m2tRNA and the training set contains
+a large number of genes, it may result in slower operation.'
+
 '--batch_size', type=int, default=1024,
-					Notes'Unless the ‘–Use_default_parameter’ is set to ‘False’, this parameter does not need to be filled in.This parameter refers to \
-					the batch size setting when training m2tRNA. The size of this batch size is related to your RAM. '
+Notes'Unless the ‘–Use_default_parameter’ is set to ‘False’, this parameter does not need to be filled in.
+This parameter refers to the batch size setting when training m2tRNA. The size of this batch size is related to your RAM. '
+
 '--Learning_rate', type=float, default=0.001,
-					Notes'Unless the ‘–Use_default_parameter’ is set to ‘False’, this parameter does not need to be filled in.\
-					This parameter sets the learning rate for training m2tRNA.'
+Notes'Unless the ‘–Use_default_parameter’ is set to ‘False’, this parameter does not need to be filled in.
+This parameter sets the learning rate for training m2tRNA.'
+
 '--epoch_num', type=int, default=1500,
-					Notes'Unless the ‘–Use_default_parameter’ is set to ‘False’, this parameter does not need to be filled \
-					in. This parameter sets the epoch number for training m2tRNA.'
+Notes'Unless the ‘–Use_default_parameter’ is set to ‘False’, this parameter does not need to be filled 
+in. This parameter sets the epoch number for training m2tRNA.'
+
 
 # --you_mRNA_data_path
 '--you_mRNA_data_path',
-					default="default",
-					Notes'Please enter the absolute path of your mRNA readcount data. This data is a comma-separated csv file, which includes ‘gene_id’ \
-					and sample numbers. If you have any doubts, please refer to the data structure provided on GitHub. I would like to remind you again, \
-					please make sure that the gene names in this file exist in the training set we provide. If this parameter is set to default, \
-					it will automatically read the file named ‘test_mRNA_select.csv’ in the m2tRNA directory.'
+default="default",
+Notes'Please enter the absolute path of your mRNA readcount data. This data is a comma-separated csv file, which includes ‘gene_id’ 
+and sample numbers. If you have any doubts, please refer to the data structure provided on GitHub. I would like to remind you again, 
+please make sure that the gene names in this file exist in the training set we provide. If this parameter is set to default, 
+it will automatically read the file named ‘test_mRNA_select.csv’ in the m2tRNA directory.'
 ```
 
 
