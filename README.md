@@ -79,7 +79,7 @@ The ```m2tRNA()``` function includes three parameters that need to be passed in:
 5 ```Bioinfo Integrate```
 ```mRNA2tRNA/m2tRNA_v0.0.1-alpha/src/bioinfo_Integrate.py```
 The function ```codon_bias( )```，```codon_bias_length( )```，```pearson_correlation_loss( )``` is included. 
-```codon_bias( )```和```codon_bias_length( )```的功能其实是一样的，只是
+The functions ```codon_bias()``` and ```codon_bias_length()``` essentially perform the same function. The only difference is that ```codon_bias_length()``` incorporates the length of the coding sequence (CDS).
 
 
 
