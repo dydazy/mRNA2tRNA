@@ -218,13 +218,3 @@ Notes'Please enter the absolute path of your mRNA readcount data. This data is a
 and sample numbers. If you have any doubts, please refer to the data structure provided on GitHub. I would like to remind you again, 
 please make sure that the gene names in this file exist in the training set we provide. If this parameter is set to default, 
 it will automatically read the file named ‘test_mRNA_select.csv’ in the m2tRNA directory.'  
-
-
-
-
-
-
-
-
-
-
