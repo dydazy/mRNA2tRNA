@@ -86,8 +86,8 @@ The functions ```codon_bias()``` and ```codon_bias_length()``` essentially perfo
 
 6 ```train m2tRNA```  
 ```mRNA2tRNA/m2tRNA_v0.0.1-alpha/src/train_m2tRNA.py```  
-The function ```codon_bias( )```，```codon_bias_length( )```，```pearson_correlation_loss( )``` is included.   
-The functions ```codon_bias()``` and ```codon_bias_length()``` essentially perform the same function. The only difference is that ```codon_bias_length()``` incorporates the length of the coding sequence (CDS).  
+The function ```train_m2tRNA_with/without_length( )``` is included.   
+Integrate all previous information and train on m2tRNA. This will ultimately return a trained neural network, which is saved to the current directory by default. At the same time, this function will be run by default to obtain the predicted tRNA expression of the target sample.  
 
 
 
