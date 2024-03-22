@@ -33,7 +33,7 @@ In detail:  We provide the m2tRNA for testing and other necessary files for its 
 In detail: It’s worth noting that the training set for this test version of m2tRNA is composed by default of ~17,000 genes to infer tRNA levels. If you wish to test your own samples, I suggest you organize the training set and only select those genes that are detected in your samples for training.
 
 
-### 1.2.3 dir: ``mRNA2tRNA/Z_figure data in paper/```
+### 1.2.3 dir: ```mRNA2tRNA/Z_figure data in paper/```
 
 ```mRNA2tRNA/Z_figure data in paper/``` This folder provides the process for replicating the hands-on content.
 In detail: In order to ensure data continuity, we have made every effort to provide the process for reproducing the results mentioned in the manuscript. However, we have not provided some of the larger and less important intermediate process files.
@@ -45,7 +45,7 @@ In the ```mRNA2tRNA/m2tRNA_v0.0.1-alpha``` folder, we provide the alpha version 
 
 ## 1.3 Introduction of m2tRNA_v0.0.1-alpha
 
-![m2tRNA_beta](https://github.com/dydazy/mRNA2tRNA/assets/46813403/a17400ac-7f6e-4ce7-b2b9-c4be92a01b25)
+![m2tRNA_beta](https://github.com/dydazy/mRNA2tRNA/assets/46813403/68669657-c5fe-4a4d-a50b-e1df0c4b2120)
 fig2.The process of m2tRNA_v0.0.1-alpha.
 
 ### 1.3.1 Module and Function
@@ -79,7 +79,7 @@ The ```m2tRNA()``` function includes three parameters that need to be passed in:
 5 ```Bioinfo Integrate```
 ```mRNA2tRNA/m2tRNA_v0.0.1-alpha/src/bioinfo_Integrate.py```
 The function ```codon_bias( )```，```codon_bias_length( )```，```pearson_correlation_loss( )``` is included. 
-
+```codon_bias( )```和```codon_bias_length( )```的功能其实是一样的，只是
 
 
 
