@@ -13,7 +13,8 @@ m2tRNA utilizes machine learning to predict tRNA levels from mRNA data, integrat
 ## 1.2 Introduction of this Git repository
 We have made the m2tRNA available for testing on this Git repository, and it is compatible with JupyterLab/Jupyter Notebook. Additionally, we have included the replication process for all data presented in the manuscript.
 
-### 1.2.1 Here, we have provided explanations for the content of each file (or folder) that we offer.
+### Here, we have provided explanations for the content of each file (or folder) that we offer.
+### 1.2.1 ```mRNA2tRNA/1.Prepare data```
 ```mRNA2tRNA/1.Prepare data/Rawdata_tRNA_mRNA``` The training set, which is split as described in fig1.a, is provided in this folder.
 
 ```mRNA2tRNA/Prepare data.ipynb``` This file provides the process of splitting the original data and the process of merging the split data, both of which can be replicated in JupyterLab/Jupyter Notebook.
