@@ -13,33 +13,79 @@ m2tRNA utilizes machine learning to predict tRNA levels from mRNA data, integrat
 ## 1.2 Introduction of this Git repository
 We have made the m2tRNA available for testing on this Git repository, and it is compatible with JupyterLab/Jupyter Notebook. Additionally, we have included the replication process for all data presented in the manuscript.
 
-### Here, we have provided explanations for the content of each file (or folder) that we offer.
-### 1.2.1 ```mRNA2tRNA/1.Prepare data```
-```mRNA2tRNA/1.Prepare data/Rawdata_tRNA_mRNA``` The training set, which is split as described in fig1.a, is provided in this folder.
+
+### Here we provide explanations for the content and purpose of all the files in this git repository.
+### 1.2.1 dir: ```mRNA2tRNA/1.Prepare data```
+
+```mRNA2tRNA/1.Prepare data/Rawdata_tRNA_mRNA``` The training set, splited, is provided in this folder.This dataset encompasses approximately 10,000 sample sets. The mRNA data within these sets is sourced from the TCGA database, while the tRNA levels are derived from the tRend database, ensuring a correspondence between the samples (as depicted in Fig1.a&g).
 
 ```mRNA2tRNA/Prepare data.ipynb``` This file provides the process of splitting the original data and the process of merging the split data, both of which can be replicated in JupyterLab/Jupyter Notebook.
 In detail:  Prior to initiating the use of m2tRNA, it is necessary to first prepare the preliminary dataset. This dataset is primarily utilized for training within the m2tRNA neural network. We furnish all the required datasets for training m2tRNA in the section titled 
-
-```1. Prepare Data```. This dataset encompasses approximately 10,000 sample sets. The mRNA data within these sets is sourced from the TCGA database, while the tRNA levels are derived from the tRend database, ensuring a correspondence between the samples (as depicted in Figure 1).
 We recommend running the ```Prepare data.ipynb``` in JupyterLab/Jupyter notebook. We provide scripts in this file to prepare the dataset needed for training. After running, you will obtain a large matrix (filename: ```tRNA_log2_mRNA_rank.csv``` or ```tRNA_log2_norm_mRNA_log2_norm.csv```,The file size is approximately ```2,700 MB```.), where rows and columns represent genes and samples respectively. The first 429 rows of the synthesized data frame consist of tRNA expression data, and the subsequent data is mRNA data.
 
-```mRNA2tRNA/2.Model``` 
-```mRNA2tRNA/2.Model/Data/``` This file provides the biological information that needs to be imported when running m2tRNA.
-In detail:  We provide the m2tRNA for testing and other necessary files for its operation in the ```2.Model``` folder. This includes the main body of m2tRNA in ```2.Model.ipynb```, as well as files containing biological information related to m2tRNA, such as codon usage frequency, tRNA gene activity, and CDS length. We recommend running these directly on JupyterLab/Jupyter Notebook.
+
+### 1.2.2 dir: ```mRNA2tRNA/2.Model```
+
+```mRNA2tRNA/2.Model/Data/``` This file provides the biological information that needs to be imported when running m2tRNA as well as containing biological information related to m2tRNA, such as codon usage frequency, tRNA gene activity, and CDS length. We recommend running these directly on JupyterLab/Jupyter Notebook.
+In detail:  We provide the m2tRNA for testing and other necessary files for its operation in the ```2.Model``` folder. This includes the main body of m2tRNA in 
+
 ```mRNA2tRNA/2.Model/2.Model.ipynb``` This file provides the basic components of m2tRNA, including the import of training data, the processing procedure, the code of m2tRNA, and the training process of m2tRNA.
-It’s worth noting that the training set for this test version of m2tRNA is composed by default of ~17,000 genes to infer tRNA levels. If you wish to test your own samples, I suggest you organize the training set and only select those genes that are detected in your samples for training.
+In detail: It’s worth noting that the training set for this test version of m2tRNA is composed by default of ~17,000 genes to infer tRNA levels. If you wish to test your own samples, I suggest you organize the training set and only select those genes that are detected in your samples for training.
+
+
+### 1.2.3 dir: ``mRNA2tRNA/Z_figure data in paper/```
 
 ```mRNA2tRNA/Z_figure data in paper/``` This folder provides the process for replicating the hands-on content.
 In detail: In order to ensure data continuity, we have made every effort to provide the process for reproducing the results mentioned in the manuscript. However, we have not provided some of the larger and less important intermediate process files.
 
+### 1.2.4 dir: ```mRNA2tRNA/m2tRNA_v0.0.1-alpha```
+
+In the ```mRNA2tRNA/m2tRNA_v0.0.1-alpha``` folder, we provide the alpha version of m2tRNA and all the necessary files for its operation (including the repeatedly provided split training set). You can run it in a Windows/Linux environment with Python installed (recommended to run on Linux). The specific structure and usage of ```m2tRNA_v0.0.1-alpha``` are in sections ```1.3``` and ```1.4```.
+
 
 ## 1.3 Introduction of m2tRNA_v0.0.1-alpha
 
-![m2tRNA_beta](https://github.com/dydazy/mRNA2tRNA/assets/46813403/2995094e-405f-4b52-b3be-f9ca55da85bb)
-The process of m2tRNA_v0.0.1-alpha is shown in the fig2.
+![m2tRNA_beta](https://github.com/dydazy/mRNA2tRNA/assets/46813403/a17400ac-7f6e-4ce7-b2b9-c4be92a01b25)
+fig2.The process of m2tRNA_v0.0.1-alpha.
+
+### 1.3.1 Module and Function
+
+1  ```Prepare Training Set``` 
+```mRNA2tRNA/m2tRNA_v0.0.1-alpha/src/prepare_training_set.py```
+The function ```merge_csv_files()``` is included. 
+If you have already downloaded our provided training set, or you have prepared your own training set, then this module is optional. The function ```merge_csv_files()``` accepts the parameters ```--split_training_set_dir``` and ```--merged_training_set_dir```. It concatenates our provided training set with the default path ```mRNA2tRNA/m2tRNA_v0.0.1-alpha/src/Rawdata_tRNA_mRNA``` (which is consistent with the content of ```mRNA2tRNA/1.Prepare data/Rawdata_tRNA_mRNA```) and saves it to the ```merged training set path``` directory.
 
 
-## 1.4 Running m2tRNA_v0.0.1-alpha 
+2 ```Customized Training Set``` 
+``` mRNA2tRNA/m2tRNA_v0.0.1-alpha/src/Customized_Training_Set.py``` 
+The function ```Customized_Training_Set( )``` is included. 
+This function generates a customized training set based on the genes of the sample you want to predict. This function requires three parameters: ```--Training_set_path``` (which is the merged training set path in the Prepare Training Set module), ```--you_mRNA_data_path``` (the path of the sample you want to predict, the format refers to our provided test file ```mRNA2tRNA/m2tRNA_v0.0.1-alpha/test_mRNA_select.csv```, it should be noted that the gene id you provide in your sample must exist in our training set, although our training set already contains almost all protein-coding genes), and ```--Customized_Training_data_set_path``` (set the location of the generated customized training set).
+
+
+3 ```Data Set Prepare```
+```mRNA2tRNA/m2tRNA_v0.0.1-alpha/src/data_set_prepare.py```
+The function ```data_set_prepare_function( )```，```codon_usage_prepare_function( )```，```activate_list_prepare_function( )```,```cds_length_prepare_function( )```,```tRNA_codon_prepare_function()``` is included. 
+This module contains several functions, all of which are used to prepare the data needed for training m2tRNA.
+The function ```data_set_prepare_function()``` returns the split training set and the gene list of this training set. This function accepts three parameters, including the absolute path of the training set ```--Training_set_path```, which is usually consistent with ```--Customized_Training_data_set_path```; ```--device``` and ```--batch_size``` set the device and batch size used when training m2tRNA.
+The functions ```codon_usage_prepare_function()```, ```activate_list_prepare_function()```, ```cds_length_prepare_function()```, and ```tRNA_codon_prepare_function()``` integrate the biological information input into m2tRNA and return the corresponding tensor.
+
+
+4 ```m2tRNA Net```
+```mRNA2tRNA/m2tRNA_v0.0.1-alpha/src/m2tRNA_Net.py```
+It is m2tRNA, the main structure is shown in fig1.d-f.
+The ```m2tRNA()``` function includes three parameters that need to be passed in: ```--df``` for the training set; ```--tRNA_codon``` for the codon-anticodon correspondence; and ```--activate_list``` for the activity list of tRNA genes.
+
+
+5 ```Bioinfo Integrate```
+```mRNA2tRNA/m2tRNA_v0.0.1-alpha/src/bioinfo_Integrate.py```
+The function ```codon_bias( )```，```codon_bias_length( )```，```pearson_correlation_loss( )``` is included. 
+
+
+
+
+# 2 Running m2tRNA_v0.0.1-alpha 
+
+## 2.1 Run m2tRNA
 
 First, make sure you have installed the following Python packagesor run:
 ```
@@ -70,7 +116,8 @@ python m2tRNA.py --get_training_set True --Custom_training_set_path False --spli
         --Learning_rate 0.001 --epoch_num 50 --you_mRNA_data_path "default"
 ```
 
-Explanation of each parameter:
+
+## 2.2 Detail/explanation of each parameter:
 
 ```'--get_training_set'```
 Notes'If you are not ready for training set, please set True ,"--get_training_set True"'
@@ -82,7 +129,7 @@ This parameter sets the save path for the automatically generated training set. 
 this parameter is False, which means the default save path is “m2tRNA/Process_file/Rawdata_tRNA_mRNA.csv.”'
 
 ```'--split_training_set_dir'```
-Notes'Unless the ‘--Custom_training_set_path’ is set to ‘True’, this parameter does not
+Notes:  'Unless the ‘--Custom_training_set_path’ is set to ‘True’, this parameter does not
 need to be filled in. The training set we provide after splitting, the default path is ‘/m2tRNA/src/Rawdata_tRNA_mRNA’.'
 
 ```'--merged_training_set_dir'```
