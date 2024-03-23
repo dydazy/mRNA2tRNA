@@ -1,5 +1,4 @@
 # m2tRNA   
-![m2tRNA](https://github.com/dydazy/mRNA2tRNA/assets/46813403/bab5bcc0-da7f-439b-9aca-9d662e830b6f)
 
 # 1.Introduction of m2tRNA   
 m2tRNA is a tool that uses a machine learning model to convert genome-wide mRNA data into tRNA levels. This model includes biological constraints to make accurate predictions.     
