@@ -1,5 +1,4 @@
-# m2tRNA   
-![m2tRNA](https://github.com/dydazy/mRNA2tRNA/assets/46813403/4ab6c56f-2412-4a77-a9d0-d1bcf30a1bcc)
+# ![m2tRNA](https://github.com/dydazy/mRNA2tRNA/assets/46813403/4ab6c56f-2412-4a77-a9d0-d1bcf30a1bcc)
 
 
 # 1.Introduction of m2tRNA   
