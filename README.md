@@ -112,14 +112,30 @@ Integrate all previous information and train on m2tRNA. This will ultimately ret
 
 
 
-# 2 Running m2tRNA_v0.0.1-alpha   
+# 2 Running ```m2tRNA_v0.0.1-alpha```   
 
-## 2.1 Run m2tRNA  
 
-First, make sure you have installed the following Python packagesor run:  
+First, make sure you have installed the following Python packagesor or run:  
 ```
-pip install pandas, numpy, scipy, matplotlib, sklearn, torch
+conda install pandas, numpy, scipy, matplotlib, sklearn, torch
 ```
+
+### 2.1 Super simple and convenient method of use.    
+
+1) Download ```m2tRNA_v0.0.1-alpha```   
+
+2) Replace the file ```m2tRNA_v0.0.1-alpha/test_mRNA_select.csv``` with your sample (that is, rename your sample to ```test_mRNA_select.csv``` for replacement).
+
+↓ Run this code directly (on a Linux system or in the terminal of an IDE).
+
+```
+python m2tRNA.py
+```
+
+
+### 2.2 Running ```m2tRNA_v0.0.1-alpha```         
+
+### 2.2.1 Detailed method of use    
 
 You can directly download the ```m2tRNA_v0.0.1-alpha``` folder. Please note that this file requires about ```3000MB``` of space. Then run the following code:  
 ```           
@@ -133,7 +149,7 @@ python m2tRNA.py --get_training_set True --Custom_training_set_path False --spli
         --merged_training_set_dir "default" --Use_default_path True --tRNA_codon_path "default" --codon_usage_path "default" 
         --activate_list_path "default" --cds_length_path "default" --Customized_Training_data_set_path "default" 
         --trained_m2tRNA_Net_save_path "default" --Use_default_parameter False --device "cuda" --batch_size 1024 
-        --Learning_rate 0.001 --epoch_num 50 --you_mRNA_data_path "default"
+        --Learning_rate 0.001 --epoch_num 2500 --you_mRNA_data_path "default"
 ```
 
 Or run in the conda environment:  
@@ -142,11 +158,11 @@ python m2tRNA.py --get_training_set True --Custom_training_set_path False --spli
         --merged_training_set_dir "default" --Use_default_path True --tRNA_codon_path "default" --codon_usage_path "default" 
         --activate_list_path "default" --cds_length_path "default" --Customized_Training_data_set_path "default" 
         --trained_m2tRNA_Net_save_path "default" --Use_default_parameter False --device "cuda" --batch_size 1024 
-        --Learning_rate 0.001 --epoch_num 50 --you_mRNA_data_path "default"
+        --Learning_rate 0.001 --epoch_num 2500 --you_mRNA_data_path "default"
 ```
 
 
-## 2.2 Detail/explanation of each parameter:  
+## 2.2.2 Detail/explanation of each parameter:  
 
 ```--get_training_set```   
 Description:    
@@ -169,11 +185,8 @@ Description:
 If True, all process files and result files will be saved to the default path. The process files will be saved in the ```m2tRNA/Process_file``` directory. The result files will be directly output to the ```m2tRNA/``` directory.    
 
 ```--tRNA_codon_path, default="default"```    
-Description:    Unless the ```--Use_default_path``` is set to ```False```, this parameter does not need
-to be filled in. This parameter is used to input the path of the ```tRNA_codon.csv``` file.
-This is a penalty matrix with a shape of (codon*anticodon, 64*429, composed of 0 and 1.
-It is used to kill the neurons in m2tRNA that describe non-corresponding anticodon-codon.
-The default path for this file is ```m2tRNA/src/Data/tRNA_codon.csv```.    
+Description:    
+Unless the ```--Use_default_path``` is set to ```False```, this parameter does not need to be filled in. This parameter is used to input the path of the ```tRNA_codon.csv``` file. This is a penalty matrix with a shape of (codon*anticodon, 64*429, composed of 0 and 1. It is used to kill the neurons in m2tRNA that describe non-corresponding anticodon-codon. The default path for this file is ```m2tRNA/src/Data/tRNA_codon.csv```.    
 
 ```--codon_usage_path, default="default"```  
 Description:    
@@ -219,4 +232,4 @@ Unless the ```–Use_default_parameter``` is set to ```False```, this parameter 
 
 ```--you_mRNA_data_path,default="default"```  
 Description:    
-Please enter the absolute path of your mRNA readcount data. This data is a comma-separated csv file, which includes "gene_id" and "sample". If you have any doubts, please refer to the data structure provided on GitHub. I would like to remind you again, please make sure that the gene names in this file exist in the training set we provide. If this parameter is set to default, it will automatically read the file named "test_mRNA_select.csv" in the m2tRNA directory.   
+Please enter the absolute path of your mRNA readcount data. This data is a comma-separated csv file, which includes ```gene_id```   and ```sample```. If you have any doubts, please refer to the data structure provided on GitHub. I would like to remind you again, please make sure that the gene names in this file exist in the training set we provide. If this parameter is set to default, it will automatically read the file named ```test_mRNA_select.csv``` in the m2tRNA directory.   
