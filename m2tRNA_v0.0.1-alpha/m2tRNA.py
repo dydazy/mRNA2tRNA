@@ -163,7 +163,7 @@ if Use_default_parameter == True:
 	device = "cuda"
 	batch_size = 1024
 	Learning_rate = 0.001
-	epoch_num = 10
+	epoch_num = 1500
 
 if you_mRNA_data_path == "default":
 	you_mRNA_data_path = script_directory + "/test_mRNA_select.csv"
