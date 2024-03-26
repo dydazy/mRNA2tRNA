@@ -20,4 +20,9 @@ class m2tRNA(nn.Module):
 		x_cat = x_cat * (self.activate_list)
 		x7 = F.relu(self.act(x_cat.mean(2)))
 		x7 = torch.squeeze(x7)
+		# Assuming the total expression of TRNA is a fixed value
+		# desired_sum = 100  
+		# current_sum = x7.sum()
+		# scale_factor = desired_sum / current_sum
+		# x7 = x7 * scale_factor  
 		return x7
